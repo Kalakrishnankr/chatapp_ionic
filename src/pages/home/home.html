@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Chat List
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  
+    <ion-list>
+  
+      <!-- <ion-item navPush="ChatPage"
+                [navParams]="toUser">
+        <ion-avatar item-left>
+          <img src="./assets/to-user.jpg">
+        </ion-avatar>
+        <h2>Hancock</h2>
+        <p>If at first you don’t succeed, call it version 1.0</p>
+      </ion-item> -->
+      <ion-item *ngFor="let item of personList" (click)="getIndividualChat(item)">
+          <ion-avatar item-left>
+              <img [src]="imageUrl+item.image">
+              <span class="chat">
+              <span class="online" *ngIf="item.Online_status==1"></span>
+              <span class="offline" *ngIf="item.Online_status==0"></span>
+              </span>
+            </ion-avatar>
+       <h2>{{item.name}}</h2> 
+      </ion-item>
+
+    </ion-list>
+  </ion-content>

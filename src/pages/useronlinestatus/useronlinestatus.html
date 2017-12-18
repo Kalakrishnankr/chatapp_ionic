@@ -1,0 +1,53 @@
+<!--
+  Generated template for the UseronlinestatusPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>useronlinestatus</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  
+    <ion-list>
+  
+      <!-- <ion-item navPush="ChatPage"
+                [navParams]="toUser">
+        <ion-avatar item-left>
+          <img src="./assets/to-user.jpg">
+        </ion-avatar>
+        <h2>Hancock</h2>
+        <p>If at first you don’t succeed, call it version 1.0</p>
+      </ion-item> -->
+      <ion-item *ngFor="let item of friendsList" (click)="getIndividualChat(item)">
+          <ion-avatar item-left>
+              <img [src]="imageUrl+item.image">
+              <span class="online"></span>
+            </ion-avatar>
+       <h2>{{item.name}}</h2> 
+      </ion-item>
+
+    </ion-list>
+    <ion-grid class="tabs">
+      <ion-row>
+        <ion-col>
+          <button ion-button full (click)="getOnlineChat()">Online</button>
+          
+        </ion-col>
+        <ion-col>
+          <button ion-button full (click)="getChatListPage()">Chat List</button>
+          
+        </ion-col>
+        <ion-col>
+          <button ion-button full (click)="getGroupChat()">Group Chat</button>
+          
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>

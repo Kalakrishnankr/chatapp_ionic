@@ -1,0 +1,52 @@
+<!--
+  Generated template for the GroupchatPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Group Chat</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<!-- <ion-content >
+  
+</ion-content> -->
+
+<ion-content padding>
+    <ion-row><button ion-button round (click)="onButtonClicked()">Create Group</button>
+    </ion-row>
+    <ion-list>
+      <ion-item *ngFor="let value of groupList" (click)="getGroupAnnouncement(value.id,value.group_name)">
+        <ion-label>{{value.group_name}}</ion-label>
+      </ion-item>
+    </ion-list>
+
+    <ion-row *ngIf="buttonClicked">
+        <ion-item>
+            <ion-input [(ngModel)]="groupName" type="text" placeholder="What's Your groups name?"></ion-input>
+          </ion-item>
+          <ion-item *ngIf ="selectedList!==null">
+            <ion-item *ngFor="let item of selectedList">
+              <ion-label>{{item}}</ion-label>
+            </ion-item>
+          </ion-item>
+          <ion-list>
+            <ion-item *ngFor="let friend of friendList">
+              <ion-label>{{friend.name}}</ion-label>
+              <ion-checkbox [(ngModel)]="friendsSelected[friend.id]"></ion-checkbox>
+            </ion-item>  
+          </ion-list>
+          <button ion-button full (click)="save()">Save</button>
+          <button ion-button full (click)="cancel()">Cancel</button>
+    </ion-row>
+  
+ 
+</ion-content>
+<ion-footer> 
+  
+</ion-footer>
